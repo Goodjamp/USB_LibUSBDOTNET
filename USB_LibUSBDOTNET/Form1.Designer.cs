@@ -576,7 +576,7 @@
             this.comboBoxRR_DevAdres.Name = "comboBoxRR_DevAdres";
             this.comboBoxRR_DevAdres.Size = new System.Drawing.Size(47, 21);
             this.comboBoxRR_DevAdres.TabIndex = 13;
-            this.comboBoxRR_DevAdres.Text = "0x20";
+            this.comboBoxRR_DevAdres.Text = "20";
             // 
             // comboBoxWR_DevAdres
             // 
@@ -590,7 +590,7 @@
             this.comboBoxWR_DevAdres.Name = "comboBoxWR_DevAdres";
             this.comboBoxWR_DevAdres.Size = new System.Drawing.Size(47, 21);
             this.comboBoxWR_DevAdres.TabIndex = 15;
-            this.comboBoxWR_DevAdres.Text = "0x20";
+            this.comboBoxWR_DevAdres.Text = "20";
             // 
             // label11
             // 

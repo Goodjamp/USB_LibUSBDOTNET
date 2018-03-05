@@ -211,7 +211,7 @@ namespace USB_LibUSBDOTNET
             {
                 for (cnt = 0; cnt < dataSize; cnt++) 
                 {
-                    rxString += Convert.ToString(data_array[cnt]) + "  ";
+                    rxString += Convert.ToString(data_array[cnt], 16) + "  ";
                 }
                 listBoxRxEP1.Items.Insert(0, rxString);
             }
@@ -318,23 +318,24 @@ namespace USB_LibUSBDOTNET
                 return;
             }
             //Data Field
-            if (0 == (numReg = converStringToHex(textBoxWR_Data.Text, 8, ref command, 64)) )
+            if (0 == (numReg = converStringToHex(textBoxWR_Data.Text, 10, ref command, 64)) )
             {
                 return;
             }
             //Reg
-            if (0 == converStringToHex(textBoxWR_Reg.Text, 7, ref command, 1) )
+            if (0 == converStringToHex(textBoxWR_Reg.Text, 8, ref command, 1) )
             {
                 return;
             }
 
-
-            command[1] = 0;
-            command[1] = 1;  
-            command[0] = Convert.ToByte((numReg + 5) << 1);
-            command[6] = Convert.ToByte(numReg);
-            command[4] = 0x0;
+            command[0] = Convert.ToByte((numReg + 7) << 1);
+            command[1] = 0x00;
+            command[2] = 0x01;
             command[3] = 0x0;
+            command[4] = 0x1;
+            command[6] = Convert.ToByte(numReg);
+
+            
 
             sendUSB(command, command.Length);
 
