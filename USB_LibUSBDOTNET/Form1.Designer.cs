@@ -52,6 +52,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxWR_DevAdres = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.buttonWR_Send = new System.Windows.Forms.Button();
             this.textBoxWR_Data = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,6 +62,8 @@
             this.textBoxWR_Reg = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBoxRR_DevAdres = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.buttonRR_Send = new System.Windows.Forms.Button();
             this.textBoxRR_Num = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,10 +72,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.buttonRF_Send = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxRR_DevAdres = new System.Windows.Forms.ComboBox();
-            this.comboBoxWR_DevAdres = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxMemTarget = new System.Windows.Forms.ComboBox();
             this.groupBoxDeviceDescription.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxConfigurationDescription.SuspendLayout();
@@ -374,6 +376,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBoxMemTarget);
+            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.comboBoxWR_DevAdres);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.buttonWR_Send);
@@ -390,6 +394,30 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxWR_DevAdres
+            // 
+            this.comboBoxWR_DevAdres.FormattingEnabled = true;
+            this.comboBoxWR_DevAdres.Items.AddRange(new object[] {
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.comboBoxWR_DevAdres.Location = new System.Drawing.Point(111, 67);
+            this.comboBoxWR_DevAdres.Name = "comboBoxWR_DevAdres";
+            this.comboBoxWR_DevAdres.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxWR_DevAdres.TabIndex = 15;
+            this.comboBoxWR_DevAdres.Text = "20";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(7, 67);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(104, 18);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Dev Addresss:";
             // 
             // buttonWR_Send
             // 
@@ -474,6 +502,30 @@
             this.tabPage3.Text = "Read Register";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // comboBoxRR_DevAdres
+            // 
+            this.comboBoxRR_DevAdres.FormattingEnabled = true;
+            this.comboBoxRR_DevAdres.Items.AddRange(new object[] {
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.comboBoxRR_DevAdres.Location = new System.Drawing.Point(109, 58);
+            this.comboBoxRR_DevAdres.Name = "comboBoxRR_DevAdres";
+            this.comboBoxRR_DevAdres.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxRR_DevAdres.TabIndex = 13;
+            this.comboBoxRR_DevAdres.Text = "20";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(5, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 18);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Dev Addresss:";
+            // 
             // buttonRR_Send
             // 
             this.buttonRR_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -554,53 +606,28 @@
             this.tabPage5.Text = "Mute";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // label12
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(5, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 18);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Dev Addresss:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(176, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 18);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Address Reg:";
             // 
-            // comboBoxRR_DevAdres
+            // comboBoxMemTarget
             // 
-            this.comboBoxRR_DevAdres.FormattingEnabled = true;
-            this.comboBoxRR_DevAdres.Items.AddRange(new object[] {
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.comboBoxRR_DevAdres.Location = new System.Drawing.Point(109, 58);
-            this.comboBoxRR_DevAdres.Name = "comboBoxRR_DevAdres";
-            this.comboBoxRR_DevAdres.Size = new System.Drawing.Size(47, 21);
-            this.comboBoxRR_DevAdres.TabIndex = 13;
-            this.comboBoxRR_DevAdres.Text = "20";
-            // 
-            // comboBoxWR_DevAdres
-            // 
-            this.comboBoxWR_DevAdres.FormattingEnabled = true;
-            this.comboBoxWR_DevAdres.Items.AddRange(new object[] {
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.comboBoxWR_DevAdres.Location = new System.Drawing.Point(111, 67);
-            this.comboBoxWR_DevAdres.Name = "comboBoxWR_DevAdres";
-            this.comboBoxWR_DevAdres.Size = new System.Drawing.Size(47, 21);
-            this.comboBoxWR_DevAdres.TabIndex = 15;
-            this.comboBoxWR_DevAdres.Text = "20";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(7, 67);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 18);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "Dev Addresss:";
+            this.comboBoxMemTarget.FormattingEnabled = true;
+            this.comboBoxMemTarget.Items.AddRange(new object[] {
+            "INT",
+            "DEVICE",
+            "INT_DEVICE"});
+            this.comboBoxMemTarget.Location = new System.Drawing.Point(279, 15);
+            this.comboBoxMemTarget.Name = "comboBoxMemTarget";
+            this.comboBoxMemTarget.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxMemTarget.TabIndex = 17;
+            this.comboBoxMemTarget.Text = "INT_DEVICE";
             // 
             // Form1
             // 
@@ -677,6 +704,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxRR_DevAdres;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBoxMemTarget;
+        private System.Windows.Forms.Label label12;
 
     }
 }

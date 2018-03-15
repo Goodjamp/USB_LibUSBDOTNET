@@ -38,10 +38,10 @@ namespace USB_LibUSBDOTNET
 
 
         public Form1()
-        {
+        {        
             InitializeComponent();
             allDevices = UsbDevice.AllDevices;
-
+            comboBoxMemTarget.SelectedIndex = 2;
         }
 
 
@@ -332,7 +332,7 @@ namespace USB_LibUSBDOTNET
             command[1] = 0x00;
             command[2] = 0x01;
             command[3] = 0x0;
-            command[4] = 0x1;
+            command[4] = Convert.ToByte(comboBoxMemTarget.SelectedIndex);
             command[6] = Convert.ToByte(numReg);
 
             
