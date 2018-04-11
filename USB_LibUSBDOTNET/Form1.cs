@@ -323,7 +323,7 @@ namespace USB_LibUSBDOTNET
                 return;
             }
             //Reg
-            if (0 == converStringToHex(textBoxWR_Reg.Text, 8, ref command, 1) )
+            if (0 == converStringToHex(textBoxWR_Reg.Text, 8, ref command, 2) )
             {
                 return;
             }
@@ -350,12 +350,12 @@ namespace USB_LibUSBDOTNET
                 return;
             }
             //Reg
-            if (0 == converStringToHex(textBoxRR_Num.Text, 5, ref command, 1) )
+            if (0 == converStringToHex(textBoxRR_Num.Text, 5, ref command, 2) )
             {
                 return;
             }
 
-            if (0 == converStringToHex(textBoxRR_Reg.Text, 7, ref command, 1) )
+            if (0 == converStringToHex(textBoxRR_Reg.Text, 7, ref command, 2) )
             {
                 return;
             }
@@ -374,6 +374,40 @@ namespace USB_LibUSBDOTNET
             command[1] = 0x00;
             command[2] = 0x01;
             command[3] = 0x02;
+
+            sendUSB(command, command.Length);
+        }
+
+        private void button_Mute_Click(object sender, EventArgs e)
+        {
+            setMuteState(true);
+        }
+
+        private void button_UnMute_Click(object sender, EventArgs e)
+        {
+            setMuteState(false);
+        }
+
+        private void setMuteState(bool mutState)
+        {
+            byte[] command = new byte[64];
+            command[0] = 0x06;
+            command[1] = 0x00;
+            command[2] = 0x01;
+            command[3] = 0x04;
+            command[4] = 0x00;
+            command[5] = (mutState) ? (Convert.ToByte(1)) : (Convert.ToByte(0));
+
+            sendUSB(command, command.Length);
+        }
+
+        private void button_GetMute_Click(object sender, EventArgs e)
+        {
+            byte[] command = new byte[64];
+            command[0] = 0x02;
+            command[1] = 0x00;
+            command[2] = 0x01;
+            command[3] = 0x05;
 
             sendUSB(command, command.Length);
         }

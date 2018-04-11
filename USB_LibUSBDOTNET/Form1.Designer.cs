@@ -52,6 +52,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxMemTarget = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.comboBoxWR_DevAdres = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonWR_Send = new System.Windows.Forms.Button();
@@ -72,8 +74,9 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.buttonRF_Send = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxMemTarget = new System.Windows.Forms.ComboBox();
+            this.button_Mute = new System.Windows.Forms.Button();
+            this.button_GetMute = new System.Windows.Forms.Button();
+            this.button_UnMute = new System.Windows.Forms.Button();
             this.groupBoxDeviceDescription.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxConfigurationDescription.SuspendLayout();
@@ -82,6 +85,7 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonTakeUSBDev
@@ -395,6 +399,29 @@
             this.tabPage2.Text = "Write Register";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // comboBoxMemTarget
+            // 
+            this.comboBoxMemTarget.FormattingEnabled = true;
+            this.comboBoxMemTarget.Items.AddRange(new object[] {
+            "INT",
+            "DEVICE",
+            "INT_DEVICE"});
+            this.comboBoxMemTarget.Location = new System.Drawing.Point(279, 15);
+            this.comboBoxMemTarget.Name = "comboBoxMemTarget";
+            this.comboBoxMemTarget.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxMemTarget.TabIndex = 17;
+            this.comboBoxMemTarget.Text = "INT_DEVICE";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(176, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(97, 18);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Address Reg:";
+            // 
             // comboBoxWR_DevAdres
             // 
             this.comboBoxWR_DevAdres.FormattingEnabled = true;
@@ -599,6 +626,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button_UnMute);
+            this.tabPage5.Controls.Add(this.button_GetMute);
+            this.tabPage5.Controls.Add(this.button_Mute);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(657, 167);
@@ -606,28 +636,35 @@
             this.tabPage5.Text = "Mute";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // button_Mute
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(176, 15);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 18);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Address Reg:";
+            this.button_Mute.Location = new System.Drawing.Point(3, 4);
+            this.button_Mute.Name = "button_Mute";
+            this.button_Mute.Size = new System.Drawing.Size(95, 35);
+            this.button_Mute.TabIndex = 0;
+            this.button_Mute.Text = "MUTE";
+            this.button_Mute.UseVisualStyleBackColor = true;
+            this.button_Mute.Click += new System.EventHandler(this.button_Mute_Click);
             // 
-            // comboBoxMemTarget
+            // button_GetMute
             // 
-            this.comboBoxMemTarget.FormattingEnabled = true;
-            this.comboBoxMemTarget.Items.AddRange(new object[] {
-            "INT",
-            "DEVICE",
-            "INT_DEVICE"});
-            this.comboBoxMemTarget.Location = new System.Drawing.Point(279, 15);
-            this.comboBoxMemTarget.Name = "comboBoxMemTarget";
-            this.comboBoxMemTarget.Size = new System.Drawing.Size(92, 21);
-            this.comboBoxMemTarget.TabIndex = 17;
-            this.comboBoxMemTarget.Text = "INT_DEVICE";
+            this.button_GetMute.Location = new System.Drawing.Point(115, 4);
+            this.button_GetMute.Name = "button_GetMute";
+            this.button_GetMute.Size = new System.Drawing.Size(101, 35);
+            this.button_GetMute.TabIndex = 1;
+            this.button_GetMute.Text = "GET MUTE";
+            this.button_GetMute.UseVisualStyleBackColor = true;
+            this.button_GetMute.Click += new System.EventHandler(this.button_GetMute_Click);
+            // 
+            // button_UnMute
+            // 
+            this.button_UnMute.Location = new System.Drawing.Point(3, 45);
+            this.button_UnMute.Name = "button_UnMute";
+            this.button_UnMute.Size = new System.Drawing.Size(95, 35);
+            this.button_UnMute.TabIndex = 2;
+            this.button_UnMute.Text = "UN MUTE";
+            this.button_UnMute.UseVisualStyleBackColor = true;
+            this.button_UnMute.Click += new System.EventHandler(this.button_UnMute_Click);
             // 
             // Form1
             // 
@@ -654,6 +691,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -706,6 +744,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxMemTarget;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button_UnMute;
+        private System.Windows.Forms.Button button_GetMute;
+        private System.Windows.Forms.Button button_Mute;
 
     }
 }
