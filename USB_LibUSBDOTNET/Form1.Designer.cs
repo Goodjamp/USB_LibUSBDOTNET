@@ -74,9 +74,10 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.buttonRF_Send = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button_Mute = new System.Windows.Forms.Button();
-            this.button_GetMute = new System.Windows.Forms.Button();
             this.button_UnMute = new System.Windows.Forms.Button();
+            this.button_GetMute = new System.Windows.Forms.Button();
+            this.button_Mute = new System.Windows.Forms.Button();
+            this.buttonCloseInterface = new System.Windows.Forms.Button();
             this.groupBoxDeviceDescription.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxConfigurationDescription.SuspendLayout();
@@ -256,8 +257,6 @@
             // 
             // listBoxDeviceDescription
             // 
-            this.listBoxDeviceDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxDeviceDescription.FormattingEnabled = true;
             this.listBoxDeviceDescription.ItemHeight = 16;
             this.listBoxDeviceDescription.Items.AddRange(new object[] {
@@ -270,7 +269,8 @@
             // 
             // groupBoxConfigurationDescription
             // 
-            this.groupBoxConfigurationDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxConfigurationDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxConfigurationDescription.Controls.Add(this.button1);
             this.groupBoxConfigurationDescription.Controls.Add(this.listBoxRxEP1);
@@ -284,8 +284,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(6, 143);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -298,7 +297,8 @@
             // 
             // listBoxRxEP1
             // 
-            this.listBoxRxEP1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxRxEP1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxRxEP1.FormattingEnabled = true;
             this.listBoxRxEP1.HorizontalScrollbar = true;
@@ -342,7 +342,7 @@
             // 
             // instalDev
             // 
-            this.instalDev.Location = new System.Drawing.Point(243, 11);
+            this.instalDev.Location = new System.Drawing.Point(533, 11);
             this.instalDev.Name = "instalDev";
             this.instalDev.Size = new System.Drawing.Size(142, 23);
             this.instalDev.TabIndex = 14;
@@ -352,8 +352,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -460,6 +459,8 @@
             // 
             // textBoxWR_Data
             // 
+            this.textBoxWR_Data.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxWR_Data.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxWR_Data.Location = new System.Drawing.Point(111, 94);
             this.textBoxWR_Data.Name = "textBoxWR_Data";
@@ -636,15 +637,15 @@
             this.tabPage5.Text = "Mute";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button_Mute
+            // button_UnMute
             // 
-            this.button_Mute.Location = new System.Drawing.Point(3, 4);
-            this.button_Mute.Name = "button_Mute";
-            this.button_Mute.Size = new System.Drawing.Size(95, 35);
-            this.button_Mute.TabIndex = 0;
-            this.button_Mute.Text = "MUTE";
-            this.button_Mute.UseVisualStyleBackColor = true;
-            this.button_Mute.Click += new System.EventHandler(this.button_Mute_Click);
+            this.button_UnMute.Location = new System.Drawing.Point(3, 45);
+            this.button_UnMute.Name = "button_UnMute";
+            this.button_UnMute.Size = new System.Drawing.Size(95, 35);
+            this.button_UnMute.TabIndex = 2;
+            this.button_UnMute.Text = "UN MUTE";
+            this.button_UnMute.UseVisualStyleBackColor = true;
+            this.button_UnMute.Click += new System.EventHandler(this.button_UnMute_Click);
             // 
             // button_GetMute
             // 
@@ -656,21 +657,33 @@
             this.button_GetMute.UseVisualStyleBackColor = true;
             this.button_GetMute.Click += new System.EventHandler(this.button_GetMute_Click);
             // 
-            // button_UnMute
+            // button_Mute
             // 
-            this.button_UnMute.Location = new System.Drawing.Point(3, 45);
-            this.button_UnMute.Name = "button_UnMute";
-            this.button_UnMute.Size = new System.Drawing.Size(95, 35);
-            this.button_UnMute.TabIndex = 2;
-            this.button_UnMute.Text = "UN MUTE";
-            this.button_UnMute.UseVisualStyleBackColor = true;
-            this.button_UnMute.Click += new System.EventHandler(this.button_UnMute_Click);
+            this.button_Mute.Location = new System.Drawing.Point(3, 4);
+            this.button_Mute.Name = "button_Mute";
+            this.button_Mute.Size = new System.Drawing.Size(95, 35);
+            this.button_Mute.TabIndex = 0;
+            this.button_Mute.Text = "MUTE";
+            this.button_Mute.UseVisualStyleBackColor = true;
+            this.button_Mute.Click += new System.EventHandler(this.button_Mute_Click);
+            // 
+            // buttonCloseInterface
+            // 
+            this.buttonCloseInterface.Enabled = false;
+            this.buttonCloseInterface.Location = new System.Drawing.Point(236, 11);
+            this.buttonCloseInterface.Name = "buttonCloseInterface";
+            this.buttonCloseInterface.Size = new System.Drawing.Size(86, 23);
+            this.buttonCloseInterface.TabIndex = 16;
+            this.buttonCloseInterface.Text = "CLOSE";
+            this.buttonCloseInterface.UseVisualStyleBackColor = true;
+            this.buttonCloseInterface.Click += new System.EventHandler(this.buttonCloseInterface_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 548);
+            this.Controls.Add(this.buttonCloseInterface);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.instalDev);
             this.Controls.Add(this.buttonOpen);
@@ -747,6 +760,7 @@
         private System.Windows.Forms.Button button_UnMute;
         private System.Windows.Forms.Button button_GetMute;
         private System.Windows.Forms.Button button_Mute;
+        private System.Windows.Forms.Button buttonCloseInterface;
 
     }
 }
