@@ -45,8 +45,8 @@
             this.groupBoxConfigurationDescription = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listBoxRxEP1 = new System.Windows.Forms.ListBox();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.buttonSend = new System.Windows.Forms.Button();
+            this.button_Open = new System.Windows.Forms.Button();
+            this.button_Send = new System.Windows.Forms.Button();
             this.textBoxSend = new System.Windows.Forms.TextBox();
             this.instalDev = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -56,28 +56,28 @@
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxWR_DevAdres = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonWR_Send = new System.Windows.Forms.Button();
+            this.button_WriteRegisters = new System.Windows.Forms.Button();
             this.textBoxWR_Data = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxWR_Num = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxWR_Reg = new System.Windows.Forms.TextBox();
+            this.textBoxWR_Address = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.comboBoxRR_DevAdres = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.buttonRR_Send = new System.Windows.Forms.Button();
+            this.button_ReadRegisters = new System.Windows.Forms.Button();
             this.textBoxRR_Num = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxRR_Reg = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.buttonRF_Send = new System.Windows.Forms.Button();
+            this.button_Refresh = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button_UnMute = new System.Windows.Forms.Button();
             this.button_GetMute = new System.Windows.Forms.Button();
             this.button_Mute = new System.Windows.Forms.Button();
-            this.buttonCloseInterface = new System.Windows.Forms.Button();
+            this.button_CloseInterface = new System.Windows.Forms.Button();
             this.groupBoxDeviceDescription.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxConfigurationDescription.SuspendLayout();
@@ -308,28 +308,28 @@
             this.listBoxRxEP1.Size = new System.Drawing.Size(650, 116);
             this.listBoxRxEP1.TabIndex = 0;
             // 
-            // buttonOpen
+            // button_Open
             // 
-            this.buttonOpen.Enabled = false;
-            this.buttonOpen.Location = new System.Drawing.Point(144, 11);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(86, 23);
-            this.buttonOpen.TabIndex = 4;
-            this.buttonOpen.Text = "OPEN";
-            this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.button_Open.Enabled = false;
+            this.button_Open.Location = new System.Drawing.Point(144, 11);
+            this.button_Open.Name = "button_Open";
+            this.button_Open.Size = new System.Drawing.Size(86, 23);
+            this.button_Open.TabIndex = 4;
+            this.button_Open.Text = "OPEN";
+            this.button_Open.UseVisualStyleBackColor = true;
+            this.button_Open.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
-            // buttonSend
+            // button_Send
             // 
-            this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSend.Location = new System.Drawing.Point(5, 41);
-            this.buttonSend.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(133, 32);
-            this.buttonSend.TabIndex = 5;
-            this.buttonSend.Text = "SEND";
-            this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.button_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Send.Location = new System.Drawing.Point(5, 41);
+            this.button_Send.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Send.Name = "button_Send";
+            this.button_Send.Size = new System.Drawing.Size(133, 32);
+            this.button_Send.TabIndex = 5;
+            this.button_Send.Text = "SEND";
+            this.button_Send.UseVisualStyleBackColor = true;
+            this.button_Send.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // textBoxSend
             // 
@@ -368,7 +368,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.textBoxSend);
-            this.tabPage1.Controls.Add(this.buttonSend);
+            this.tabPage1.Controls.Add(this.button_Send);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -383,12 +383,12 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.comboBoxWR_DevAdres);
             this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.buttonWR_Send);
+            this.tabPage2.Controls.Add(this.button_WriteRegisters);
             this.tabPage2.Controls.Add(this.textBoxWR_Data);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.textBoxWR_Num);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.textBoxWR_Reg);
+            this.tabPage2.Controls.Add(this.textBoxWR_Address);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -445,17 +445,17 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "Dev Addresss:";
             // 
-            // buttonWR_Send
+            // button_WriteRegisters
             // 
-            this.buttonWR_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonWR_Send.Location = new System.Drawing.Point(10, 129);
-            this.buttonWR_Send.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonWR_Send.Name = "buttonWR_Send";
-            this.buttonWR_Send.Size = new System.Drawing.Size(133, 32);
-            this.buttonWR_Send.TabIndex = 6;
-            this.buttonWR_Send.Text = "Write Registers";
-            this.buttonWR_Send.UseVisualStyleBackColor = true;
-            this.buttonWR_Send.Click += new System.EventHandler(this.buttonWR_Send_Click);
+            this.button_WriteRegisters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_WriteRegisters.Location = new System.Drawing.Point(10, 129);
+            this.button_WriteRegisters.Margin = new System.Windows.Forms.Padding(2);
+            this.button_WriteRegisters.Name = "button_WriteRegisters";
+            this.button_WriteRegisters.Size = new System.Drawing.Size(133, 32);
+            this.button_WriteRegisters.TabIndex = 6;
+            this.button_WriteRegisters.Text = "Write Registers";
+            this.button_WriteRegisters.UseVisualStyleBackColor = true;
+            this.button_WriteRegisters.Click += new System.EventHandler(this.buttonWR_Send_Click);
             // 
             // textBoxWR_Data
             // 
@@ -495,13 +495,13 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Number Reg:";
             // 
-            // textBoxWR_Reg
+            // textBoxWR_Address
             // 
-            this.textBoxWR_Reg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxWR_Reg.Location = new System.Drawing.Point(111, 15);
-            this.textBoxWR_Reg.Name = "textBoxWR_Reg";
-            this.textBoxWR_Reg.Size = new System.Drawing.Size(46, 21);
-            this.textBoxWR_Reg.TabIndex = 1;
+            this.textBoxWR_Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWR_Address.Location = new System.Drawing.Point(111, 15);
+            this.textBoxWR_Address.Name = "textBoxWR_Address";
+            this.textBoxWR_Address.Size = new System.Drawing.Size(46, 21);
+            this.textBoxWR_Address.TabIndex = 1;
             // 
             // label2
             // 
@@ -517,7 +517,7 @@
             // 
             this.tabPage3.Controls.Add(this.comboBoxRR_DevAdres);
             this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.buttonRR_Send);
+            this.tabPage3.Controls.Add(this.button_ReadRegisters);
             this.tabPage3.Controls.Add(this.textBoxRR_Num);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.textBoxRR_Reg);
@@ -554,17 +554,17 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Dev Addresss:";
             // 
-            // buttonRR_Send
+            // button_ReadRegisters
             // 
-            this.buttonRR_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRR_Send.Location = new System.Drawing.Point(5, 84);
-            this.buttonRR_Send.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonRR_Send.Name = "buttonRR_Send";
-            this.buttonRR_Send.Size = new System.Drawing.Size(133, 32);
-            this.buttonRR_Send.TabIndex = 11;
-            this.buttonRR_Send.Text = "Read Registers";
-            this.buttonRR_Send.UseVisualStyleBackColor = true;
-            this.buttonRR_Send.Click += new System.EventHandler(this.buttonRR_Send_Click);
+            this.button_ReadRegisters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_ReadRegisters.Location = new System.Drawing.Point(5, 84);
+            this.button_ReadRegisters.Margin = new System.Windows.Forms.Padding(2);
+            this.button_ReadRegisters.Name = "button_ReadRegisters";
+            this.button_ReadRegisters.Size = new System.Drawing.Size(133, 32);
+            this.button_ReadRegisters.TabIndex = 11;
+            this.button_ReadRegisters.Text = "Read Registers";
+            this.button_ReadRegisters.UseVisualStyleBackColor = true;
+            this.button_ReadRegisters.Click += new System.EventHandler(this.buttonRR_Send_Click);
             // 
             // textBoxRR_Num
             // 
@@ -604,7 +604,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.buttonRF_Send);
+            this.tabPage4.Controls.Add(this.button_Refresh);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -613,17 +613,17 @@
             this.tabPage4.Text = "Refresh";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // buttonRF_Send
+            // button_Refresh
             // 
-            this.buttonRF_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRF_Send.Location = new System.Drawing.Point(5, 5);
-            this.buttonRF_Send.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonRF_Send.Name = "buttonRF_Send";
-            this.buttonRF_Send.Size = new System.Drawing.Size(133, 32);
-            this.buttonRF_Send.TabIndex = 7;
-            this.buttonRF_Send.Text = "Refresh";
-            this.buttonRF_Send.UseVisualStyleBackColor = true;
-            this.buttonRF_Send.Click += new System.EventHandler(this.buttonRF_Send_Click);
+            this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Refresh.Location = new System.Drawing.Point(5, 5);
+            this.button_Refresh.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Refresh.Name = "button_Refresh";
+            this.button_Refresh.Size = new System.Drawing.Size(133, 32);
+            this.button_Refresh.TabIndex = 7;
+            this.button_Refresh.Text = "Refresh";
+            this.button_Refresh.UseVisualStyleBackColor = true;
+            this.button_Refresh.Click += new System.EventHandler(this.buttonRF_Send_Click);
             // 
             // tabPage5
             // 
@@ -667,26 +667,26 @@
             this.button_Mute.UseVisualStyleBackColor = true;
             this.button_Mute.Click += new System.EventHandler(this.button_Mute_Click);
             // 
-            // buttonCloseInterface
+            // button_CloseInterface
             // 
-            this.buttonCloseInterface.Enabled = false;
-            this.buttonCloseInterface.Location = new System.Drawing.Point(236, 11);
-            this.buttonCloseInterface.Name = "buttonCloseInterface";
-            this.buttonCloseInterface.Size = new System.Drawing.Size(86, 23);
-            this.buttonCloseInterface.TabIndex = 16;
-            this.buttonCloseInterface.Text = "CLOSE";
-            this.buttonCloseInterface.UseVisualStyleBackColor = true;
-            this.buttonCloseInterface.Click += new System.EventHandler(this.buttonCloseInterface_Click);
+            this.button_CloseInterface.Enabled = false;
+            this.button_CloseInterface.Location = new System.Drawing.Point(236, 11);
+            this.button_CloseInterface.Name = "button_CloseInterface";
+            this.button_CloseInterface.Size = new System.Drawing.Size(86, 23);
+            this.button_CloseInterface.TabIndex = 16;
+            this.button_CloseInterface.Text = "CLOSE";
+            this.button_CloseInterface.UseVisualStyleBackColor = true;
+            this.button_CloseInterface.Click += new System.EventHandler(this.buttonCloseInterface_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 548);
-            this.Controls.Add(this.buttonCloseInterface);
+            this.Controls.Add(this.button_CloseInterface);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.instalDev);
-            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.button_Open);
             this.Controls.Add(this.groupBoxConfigurationDescription);
             this.Controls.Add(this.groupBoxDeviceDescription);
             this.Controls.Add(this.buttonTakeUSBDev);
@@ -727,8 +727,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lableSerial;
         private System.Windows.Forms.Label lableProducte;
-        private System.Windows.Forms.Button buttonOpen;
-        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Button button_Open;
+        private System.Windows.Forms.Button button_Send;
         private System.Windows.Forms.TextBox textBoxSend;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button instalDev;
@@ -739,18 +739,18 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonWR_Send;
+        private System.Windows.Forms.Button button_WriteRegisters;
         private System.Windows.Forms.TextBox textBoxWR_Data;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxWR_Num;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxWR_Reg;
-        private System.Windows.Forms.Button buttonRR_Send;
+        private System.Windows.Forms.TextBox textBoxWR_Address;
+        private System.Windows.Forms.Button button_ReadRegisters;
         private System.Windows.Forms.TextBox textBoxRR_Num;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxRR_Reg;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button buttonRF_Send;
+        private System.Windows.Forms.Button button_Refresh;
         private System.Windows.Forms.ComboBox comboBoxWR_DevAdres;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxRR_DevAdres;
@@ -760,7 +760,7 @@
         private System.Windows.Forms.Button button_UnMute;
         private System.Windows.Forms.Button button_GetMute;
         private System.Windows.Forms.Button button_Mute;
-        private System.Windows.Forms.Button buttonCloseInterface;
+        private System.Windows.Forms.Button button_CloseInterface;
 
     }
 }

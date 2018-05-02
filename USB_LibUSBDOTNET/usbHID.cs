@@ -129,7 +129,7 @@ namespace USB_LibUSBDOTNET
             if (readLibUSBThread.IsAlive)
             {
                 readLibUSBThread.Abort();
-                readLibUSBThread.Join(500);
+                readLibUSBThread.Join(1000);
 
             }
 
@@ -164,11 +164,18 @@ namespace USB_LibUSBDOTNET
         private void readUSBHID()
         {
             byte[] buffReadPolling = new byte[rxBuferSize];
-            int rxLength;
+            int rxLength = 0;
             ErrorCode reazRead;
             while (true)
             {
-                reazRead = reader.Read(buffReadPolling, 50, out rxLength);
+                try
+                {
+                    reazRead = reader.Read(buffReadPolling, 50, out rxLength);
+                }
+                catch
+                {
+                    return;
+                }
                 if (rxLength != 0)
                 {
                     libUSBRxCallback(buffReadPolling, rxLength);

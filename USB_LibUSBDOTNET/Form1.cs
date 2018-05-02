@@ -24,7 +24,7 @@ namespace USB_LibUSBDOTNET
         private delegate void showUSBData(byte[] data_array, int dataSize);
         private int txBuferSize;
         private usbHID myUSBHID;
-
+        List<Button> buttonContrpl;
 
         public Form1()
         {
@@ -32,8 +32,28 @@ namespace USB_LibUSBDOTNET
             //allDevices = UsbDevice.AllDevices;
             comboBoxMemTarget.SelectedIndex = 2;
             myUSBHID = new usbHID();
+            buttonContrpl = new List<Button>{
+                                         button_Send,
+                                         button_WriteRegisters,
+                                         button_ReadRegisters,
+                                         button_Refresh,
+                                         button_Mute,
+                                         button_UnMute,
+                                         button_GetMute,
+                                         };
+            setCommandButtonState(false);
+            // Set default imeg DSP
+            textBoxWR_Data.Text = "10 00 40 00 10 30 40";
+            textBoxWR_Address.Text = "00 10";
         }
 
+        private void setCommandButtonState(bool newState)
+        {
+            for (UInt16 k = 0; k < buttonContrpl.Count; k++)
+            {
+                buttonContrpl[k].Enabled = newState;
+            }
+        }
 
         private void buttonTakeUSBDev_Click(object sender, EventArgs e)
         {
@@ -97,7 +117,7 @@ namespace USB_LibUSBDOTNET
             lableProducte.Text    = sellProdName;
             lableManufacture.Text = sellManufacture;
             // Update interface activity
-            this.buttonOpen.Enabled = true;
+            this.button_Open.Enabled = true;
         }
 
 
@@ -108,8 +128,9 @@ namespace USB_LibUSBDOTNET
             int seldevice = listBoxDeviceDescription.SelectedIndex;
             if(myUSBHID.usbOpenHIDInterface(listBoxDeviceDescription.SelectedIndex, showUSBRx))
             {
-                this.buttonOpen.Enabled = false;
-                this.buttonCloseInterface.Enabled = true;
+                this.button_Open.Enabled = false;
+                this.button_CloseInterface.Enabled = true;
+                setCommandButtonState(true);
             }
         }
 
@@ -118,8 +139,9 @@ namespace USB_LibUSBDOTNET
         {
             if (myUSBHID.libUSBCloseEP())
             {
-                this.buttonOpen.Enabled = true;
-                this.buttonCloseInterface.Enabled = false;
+                this.button_Open.Enabled = true;
+                this.button_CloseInterface.Enabled = false;
+                setCommandButtonState(false);
             }
         }
 
@@ -244,7 +266,7 @@ namespace USB_LibUSBDOTNET
                 return;
             }
             //Reg
-            if (0 == converStringToHex(textBoxWR_Reg.Text, 8, ref command, 2))
+            if (0 == converStringToHex(textBoxWR_Address.Text, 8, ref command, 2))
             {
                 return;
             }
