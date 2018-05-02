@@ -692,6 +692,8 @@
             this.Controls.Add(this.buttonTakeUSBDev);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_CLose);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxDeviceDescription.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

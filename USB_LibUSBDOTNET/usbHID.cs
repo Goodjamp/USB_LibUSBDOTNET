@@ -33,11 +33,36 @@ namespace USB_LibUSBDOTNET
         // size selected endpoin Tx buffer
         private int txBuferSize;
         Thread readLibUSBThread;
+        bool setStetOffStream;
+        bool getStetOffStream;
+        Mutex threadState;
+
+        private void setThreadState(bool newState)
+        {
+            threadState.WaitOne();
+            threadState.Close();
+
+            setStetOffStream = newState;
+
+            threadState.ReleaseMutex();
+        }
+
+        private bool getThreadState(bool newState)
+        {
+            threadState.WaitOne();
+            threadState.Close();
+
+            return setStetOffStream;
+
+            threadState.ReleaseMutex();
+        }
 
         public int usbGetNumberOfDevices()
         {
             allDevices = UsbDevice.AllDevices;  // get all usb devises
             return allDevices.Count;
+            getStetOffStream = false;
+            setStetOffStream = false;
 
         }
 
@@ -102,6 +127,7 @@ namespace USB_LibUSBDOTNET
                 reader = MyUsbDevice.OpenEndpointReader(ReadEndpointID.Ep01);
                 //Set Rx Callbac function
                 libUSBRxCallback = rxCallback;
+                setStetOffStream = true;
                 readLibUSBThread = new Thread(readUSBHID);
                 readLibUSBThread.Start();
                 return true;
@@ -125,37 +151,47 @@ namespace USB_LibUSBDOTNET
 
         public bool libUSBCloseEP()
         {
+            setStetOffStream = false;
+            while (getStetOffStream) { };
+
             // Stope readUSB rhread
             if (readLibUSBThread.IsAlive)
             {
                 readLibUSBThread.Abort();
-                readLibUSBThread.Join(1000);
+                readLibUSBThread.Join(10000);
 
             }
 
             //
-            if (MyUsbDevice != null)
+            try
             {
-                if (MyUsbDevice.IsOpen)
+                if (MyUsbDevice != null)
                 {
-                    // If this is a "whole" usb device (libusb-win32, linux libusb-1.0)
-                    // it exposes an IUsbDevice interface. If not (WinUSB) the 
-                    // 'wholeUsbDevice' variable will be null indicating this is 
-                    // an interface of a device; it does not require or support 
-                    // configuration and interface selection.
-                    IUsbDevice wholeUsbDevice = MyUsbDevice as IUsbDevice;
-                    if (!ReferenceEquals(wholeUsbDevice, null))
+                    if (MyUsbDevice.IsOpen)
                     {
-                        // Release interface #0.
-                        wholeUsbDevice.ReleaseInterface(0);
+                        // If this is a "whole" usb device (libusb-win32, linux libusb-1.0)
+                        // it exposes an IUsbDevice interface. If not (WinUSB) the 
+                        // 'wholeUsbDevice' variable will be null indicating this is 
+                        // an interface of a device; it does not require or support 
+                        // configuration and interface selection.
+                        IUsbDevice wholeUsbDevice = MyUsbDevice as IUsbDevice;
+                        if (!ReferenceEquals(wholeUsbDevice, null))
+                        {
+                            // Release interface #0.
+                            wholeUsbDevice.ReleaseInterface(0);
+                        }
+                        MyUsbDevice.Close();
                     }
-                    MyUsbDevice.Close();
                 }
-            }
-            MyUsbDevice = null;
+                MyUsbDevice = null;
 
-            // Free usb resources
-            UsbDevice.Exit();
+                // Free usb resources
+                UsbDevice.Exit();
+            }
+            catch
+            {
+                return true;
+            }
 
             return true;
         }
@@ -168,6 +204,11 @@ namespace USB_LibUSBDOTNET
             ErrorCode reazRead;
             while (true)
             {
+                if (!setStetOffStream)
+                {
+                    return;
+                }
+                getStetOffStream = true;
                 try
                 {
                     reazRead = reader.Read(buffReadPolling, 50, out rxLength);
@@ -180,6 +221,7 @@ namespace USB_LibUSBDOTNET
                 {
                     libUSBRxCallback(buffReadPolling, rxLength);
                 }
+                getStetOffStream = false;
             }
         }
 

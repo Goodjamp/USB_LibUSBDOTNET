@@ -45,6 +45,10 @@ namespace USB_LibUSBDOTNET
             // Set default imeg DSP
             textBoxWR_Data.Text = "10 00 40 00 10 30 40";
             textBoxWR_Address.Text = "00 10";
+            // 
+            textBoxRR_Reg.Text = "00 10";
+            textBoxRR_Num.Text = "0A";
+
         }
 
         private void setCommandButtonState(bool newState)
@@ -357,6 +361,16 @@ namespace USB_LibUSBDOTNET
             command[3] = 0x05;
 
             myUSBHID.usbSend(command, command.Length);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_CLose(object sender, FormClosingEventArgs e)
+        {
+            myUSBHID.libUSBCloseEP();
         }
     }
 }
